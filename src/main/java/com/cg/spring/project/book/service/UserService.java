@@ -105,5 +105,10 @@ import com.cg.spring.project.book.model.User;
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+		public Object getBookByName(String name) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 	}
 }

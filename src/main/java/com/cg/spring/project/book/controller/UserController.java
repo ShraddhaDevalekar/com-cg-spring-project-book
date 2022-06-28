@@ -23,7 +23,7 @@ import com.cg.spring.project.book.service.UserService;
 @RestController
 @RequestMapping("/book")
 @CrossOrigin(origins = "*")
-//@CrossOrigin(origins = "http://localhost:7777")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
 	// Use ResponseEntity to all the methods in controller classes.
@@ -33,14 +33,14 @@ public class UserController {
 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-	// http://localhost:9999/emp/get-all-emps
+	// http://localhost:7777/emp/get-all-emps
 	@GetMapping("/get-all-book")
 	public ResponseEntity<List<Book>> getAllBooks() {
 		List<Book> bookList = userService.getAllBooks();
 		for (Book bookTemp : bookList)
 			LOG.info(bookTemp.toString());
 		HttpStatus status = HttpStatus.OK;
-		ResponseEntity<List<Book>> response = new ResponseEntity<>(bookList, feedback);
+		ResponseEntity<List<Book>> response = new ResponseEntity<>(bookList,response);
 		return response;
 	}
 
@@ -50,11 +50,11 @@ public class UserController {
 		LOG.info(Integer.toString(userid));
 		Book book = userService.getUserById(userid);
 		HttpStatus status = HttpStatus.OK;
-		ResponseEntity<Book> response = new ResponseEntity<>(book, feedback);
+		ResponseEntity<Book> response = new ResponseEntity<>(book,feedback);
 		return response;
 	}
 
-	// http://localhost:9999/emp/get-emp-by-name/{firstName}
+	// http://localhost:7777/emp/get-emp-by-name/{firstName}
 	@GetMapping("/get-book-by-name/{Name}")
 	public ResponseEntity<List<Book>> getBookByName(@PathVariable(name = "Name") String Name) {
 		LOG.info(Name);

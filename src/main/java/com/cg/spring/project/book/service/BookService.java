@@ -34,15 +34,15 @@ public class BookService{
 		return bookRepository.findAll();
 	}
 
-	public Book getBookById(int id) {
-		Optional<Book> bookOptional = bookRepository.findById(id);
+	public Book getBookById(int bookId) {
+		Optional<Book> bookOptional = bookRepository.findById(bookId);
 		Book book = null;
 		if (bookOptional.isPresent()) {
 			book =bookOptional.get();
 			LOG.info(book.toString());
 			return book;
 		} else {
-			String errorMessage = "Book with id " + id + " does not exist.";
+			String errorMessage = "Book with id " + bookId + " does not exist.";
 			LOG.error(errorMessage);
 			throw new BookNotFoundException(errorMessage);
 		}
@@ -68,8 +68,8 @@ public class BookService{
 
 	public Book updateBook(Book book) {
 		LOG.info(Book.toString());
-		this.getBookById(Book.getId());
-		Object bookRepository;
+		this.getBookById(Book.getBookId());
+		
 		return bookRepository.save(book);
 	}
 

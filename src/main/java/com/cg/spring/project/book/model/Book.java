@@ -44,7 +44,7 @@ public class Book {
 		this.rating = rating;
 	}
 
-	public static int getBookId() {
+	public int getBookId() {
 		return bookId;
 	}
 
@@ -85,10 +85,9 @@ public class Book {
 	}
 
 	@Override
-	public static String toString() {
+	public String toString() {
 		// TODO Auto-generated method stub
 		return "Book [BookId = " + bookId + ", BookName = " + bookName + ", Author = " + author + ", Category = "
 				+ category + ", Rating = " + rating + "]";
 	}
-
 }
